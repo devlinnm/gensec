@@ -1,0 +1,34 @@
+
+1) Disable the root password	
+>passwd --lock root
+2) Change permissions on privileged user home folder to 0700
+>sudo chmod -R 0700 /home/Admin
+3) Change permissions on non-privileged user home folder to 0700
+> sudo chmod -R 0700 /home/User
+#both can be verified by doing >ls -lah /home/
+4) Install UFW and GUFW
+>sudo apt-get install gufw	# install gui firewall
+>sudo ufw enable		# turns on firewall
+5) Install ClamAV
+>sudo apt-get install clamav
+>sudo freshclam	#updates ClamAV
+>sudo clamscan 	#runs a scan
+6) Install rkhunter and chkrootkit
+>sudo apt-get install rkhunter 	#select all defaults
+>sudo rkhunter –check 	#runs a scan
+>sudo chkrootkit 		#runs scan
+7) Set up automatic, unattended upgrades for security-related packages only.
+>sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+Make sure only security is checked
+>sudo nano /etc/apt/apt.conf.d/10periodic
+APT::Periodic::Unattended-Upgrade “1”;
+8) Create SSH key for privileged user (just make it
+>sudo ssh-keygen -t rsa -b 4096 -C SkillsAdmin@ubuntu
+9) Protect su
+>sudo groupadd suusers
+>sudo chgrp suusers /bin/su
+>sudo chmod o-rwx /bin/su
+>sudo useradd -a -G suuers SkillsAdmin
+10) Install Lynis and run it
+>sudo apt-get install lynis
+>sudo lynis audit system
