@@ -1,0 +1,4 @@
+wget https://git.io/vpn -O openvpn-install.sh 
+sudo bash openvpn-install.sh
+#copy openvpn file to desktop and run it when you want to connect
+whatever.ovpn
