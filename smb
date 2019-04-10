@@ -1,0 +1,15 @@
+sudo apt-get install samba
+sudo mkdir /home/skillsadmin/sambashare
+sudo nano /etc/samba/smb.conf
+# add the following to the bottom of the line
+##########################################
+[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/skillsadmin/sambashare
+    read only = no
+    browsable = yes
+##########################################
+sudo service smbd restart
+sudo smbpasswd -a skillsadmin
+# on windows
+\\ip-address\sambashare
