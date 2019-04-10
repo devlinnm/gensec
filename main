@@ -32,3 +32,8 @@ APT::Periodic::Unattended-Upgrade “1”;
 10) Install Lynis and run it
 >sudo apt-get install lynis
 >sudo lynis audit system
+
+https://raw.githubusercontent.com/devlinnm/gensec/master/bind
+https://raw.githubusercontent.com/devlinnm/gensec/master/smb
+https://raw.githubusercontent.com/devlinnm/gensec/master/ssh
+https://raw.githubusercontent.com/devlinnm/gensec/master/vpn
